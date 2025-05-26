@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedNet</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1>RedNet - Otimização de Rotas de Dados</h1>
+
+        <section class="form-section">
+            <h2>Nos ajude a identificar o problema</h2>
+            <form method="POST" action="{% url 'criar_task' %}">
+                {% csrf_token %}
+                <label for="title">Problema:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" required>
+
+                <label for="description">Descrição:</label>
+                <textarea id="description" id="description" name="description" rows="3"></textarea>
+
+                <label for="latencia">Lantencia:</label>
+                <input type="number" id="latencia" name="latencia" min="0" step="1" required>
+
+                <button type="submit">Salvar</button>
+            </form>
+        </section>
+
+        <section class="tasks-section">
+            <h2>Lista de reclamações</h2>
+            {% for task in tasks %}
+                <div class="task-card">
+                    <h3>Problema: {{ task.title }}</h3>
+                    <h3>Bairro: {{task.bairro}}</h3>
+                    <p>Descrição: {{ task.description|default:"(sem descrição)" }}</p>
+                    <div class="actions">
+                        <!-- <a href="{% url 'detalhar_task' task.id %}">Ver</a>
+                        <a href="{% url 'atualizar_task' task.id %}">Editar</a> -->
+                        <form action="{% url 'deletar_task' task.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit">Excluir</button>
+                        </form>
+                    </div>
+                </div>
+            {% empty %}
+                <p>Nenhum reclamação cadastrada.</p>
+            {% endfor %}
+        </section>
+    </div>
+    <div id="popup" class="popup-overlay" style="display: none;">
+    <div class="popup-box">
+        <p>Obrigado! Responderemos por e-mail.</p>
+        <div class="popup-actions">
+            <button id="confirmarEnvio">OK</button>
+            <button id="cancelarEnvio">Cancelar</button>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

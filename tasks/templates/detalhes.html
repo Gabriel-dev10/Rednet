@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="task-card">
+            <h2>{{ task.title }}</h2>
+            <p>Bairro: {{task.bairro}}</p>
+            <p>Descrição: {{ task.description|default:"(sem descrição)" }}</p>
+
+            <div class="actions">
+                <a href="{% url 'atualizar_task' task.id %}">Editar</a>
+                <a href="{% url 'index' %}">Voltar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

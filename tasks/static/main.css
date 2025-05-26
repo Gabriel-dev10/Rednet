@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #1a1a2e;
+    color: #fff;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+textarea{
+    height: 100px;         
+    resize: none;         
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    border: none;
+}
+
+.form-section {
+    background-color: #16213e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    align-self: flex-start;
+    background: #00adb5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #007f86;
+}
+
+.tasks-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task-card {
+    background: #0f3460;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.task-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #00adb5;
+}
+
+.task-card p {
+    margin: 0 0 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.actions a {
+    color: #00adb5;
+    font-weight: bold;
+}
+
+.actions form {
+    display: inline;
+}
+
+.actions button {
+    padding: 5px 10px;
+    background: #ff5722;
+}
+
+.actions button:hover {
+    background: #e64a19;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.form-section, .task-card {
+    background-color: #16213e;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+a {
+    color: #00adb5;
+    font-weight: bold;
+    margin-right: 10px;
+    text-decoration: none;
+}
