@@ -11,7 +11,7 @@
     
     <div class="container">
 
-        <h1>RedNet - Otimização de Rotas de Dados</h1>
+        <h1>RedNet - SAC</h1>
 
         <section class="form-section">
             <h2>Nos ajude a identificar o problema</h2>
@@ -26,7 +26,7 @@
                 <label for="description">Descrição:</label>
                 <textarea id="description" id="description" name="description" rows="3"></textarea>
 
-                <label for="latencia">Lantencia:</label>
+                <label for="latencia">Lantência:</label>
                 <input type="number" id="latencia" name="latencia" min="0" step="1" required>
 
                 <button type="submit">Salvar</button>
@@ -40,6 +40,7 @@
                     <h3>Problema: {{ task.title }}</h3>
                     <h3>Bairro: {{task.bairro}}</h3>
                     <p>Descrição: {{ task.description|default:"(sem descrição)" }}</p>
+                    <p>Latência - {{task.latencia}}</p>
                     <div class="actions">
                         <!-- <a href="{% url 'detalhar_task' task.id %}">Ver</a>
                         <a href="{% url 'atualizar_task' task.id %}">Editar</a> -->
@@ -53,15 +54,6 @@
                 <p>Nenhum reclamação cadastrada.</p>
             {% endfor %}
         </section>
-    </div>
-    <div id="popup" class="popup-overlay" style="display: none;">
-    <div class="popup-box">
-        <p>Obrigado! Responderemos por e-mail.</p>
-        <div class="popup-actions">
-            <button id="confirmarEnvio">OK</button>
-            <button id="cancelarEnvio">Cancelar</button>
-        </div>
-    </div>
     </div>
 </body>
 </html>

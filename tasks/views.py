@@ -34,5 +34,5 @@ def atualizar_task(request, task_id):
     return render(request, 'editar.html', {'task': task})
 
 def exportar_latencia_json(request):
-    tarefas = Task.objects.all().values('latencia')
+    tarefas = Task.objects.all().values('bairro','latencia')
     return JsonResponse(list(tarefas), safe=False)
